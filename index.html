@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocEngine v1.0 - Mi Gestión Segura</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="theme-link"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script type="module" crossorigin src="./assets/index.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/style-D7WDnxen.css">
+  </head>
+
+  <body class="bg-body-tertiary">
+    <div id="auth-container"></div>
+    <input
+      type="text"
+      name="user"
+      style="
+        border: none;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        opacity: 0;
+      "
+      id="user-none"
+    />
+    <input
+      type="password"
+      name="pass"
+      style="
+        border: none;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        opacity: 0;
+      "
+      id="pass-none"
+    />
+
+    <div id="app-content" style="display: none">
+      <nav
+        class="navbar navbar-expand-lg text-bg-primary border-bottom shadow-sm fixed-top no-print"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold text-bg-primary" href="#">
+            <i class="fa-solid fa-shield-halved me-2"></i>DocEngine
+            <span class="fw-light opacity-75">Pro</span>
+          </a>
+
+          <button
+            class="navbar-toggler border-0 shadow-none text-bg-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link px-3 text-bg-primary"
+                  href="#"
+                  id="nav-designer"
+                >
+                  <i class="fa-solid fa-layer-group me-1"></i> Diseñador
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link px-3 text-bg-primary"
+                  href="#"
+                  id="nav-documents"
+                >
+                  <i class="fa-solid fa-file-signature me-1"></i> Documentos
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle btn btn-sm border-0 text-bg-primary"
+                  href="#"
+                  id="userMenu"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="fa-solid fa-circle-user me-1"></i>
+                  <span id="user-display-name">Usuario</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow">
+                  <li>
+                    <a class="dropdown-item" href="#" id="nav-settings">
+                      <i class="fa-solid fa-cog me-2"></i>Configuración
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item text-danger"
+                      href="#"
+                      id="btn-logout-link"
+                    >
+                      <i class="fa-solid fa-sign-out-alt me-2"></i>Cerrar Sesión
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="app-container">
+        <div id="view-designer" class="view-section">
+          <div id="designer-list-view">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="text-body">
+                <i class="fa-solid fa-drafting-compass text-danger"></i> Mis
+                Plantillas
+              </h3>
+              <button id="btn-go-create-tpl" class="btn btn-danger shadow-sm">
+                <i class="fa-solid fa-plus"></i> Nueva Plantilla
+              </button>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="fa-solid fa-search"></i>
+                  </span>
+                  <input
+                    autocomplete="off"
+                    spellcheck="false"
+                    readonly
+                    onfocus="this.removeAttribute('readonly')"
+                    type="search"
+                    id="tpl-search"
+                    class="form-control"
+                    placeholder="Buscar por nombre..."
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table
+                class="table table-hover align-middle shadow-sm rounded overflow-hidden mb-0"
+              >
+                <thead class="table-light">
+                  <tr>
+                    <th class="text-center" style="width: 60px">Icono</th>
+                    <th style="width: 150px">Categoría</th>
+                    <th>Nombre de Plantilla</th>
+                    <th style="width: 120px">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tpl-table-body"></tbody>
+              </table>
+            </div>
+            <nav class="mt-3">
+              <ul
+                class="pagination justify-content-center"
+                id="tpl-pagination"
+              ></ul>
+            </nav>
+          </div>
+
+          <div id="designer-editor-view" style="display: none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <button id="btn-back-tpl-list" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Cancelar
+              </button>
+              <button id="btn-save-template" class="btn text-bg-primary">
+                <i class="fa-solid fa-save me-2"></i> Guardar Plantilla
+              </button>
+            </div>
+
+            <div class="card shadow-sm mb-4 border-primary border-opacity-25">
+              <div class="card-header text-bg-primary fw-bold">
+                1. Configuración de la Plantilla
+              </div>
+              <div class="card-body">
+                <div class="d-flex gap-2 align-items-center">
+                  <div class="flex-grow-1">
+                    <input
+                      autocomplete="off"
+                      spellcheck="false"
+                      readonly
+                      onfocus="this.removeAttribute('readonly')"
+                      type="text"
+                      id="tpl-title"
+                      class="form-control form-control-lg"
+                      placeholder="Título de la Plantilla (Ej: Historia Clínica)"
+                      required
+                    />
+                  </div>
+                  <button
+                    class="btn btn-outline-secondary btn-lg"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#advancedConfig"
+                    aria-expanded="false"
+                    aria-controls="advancedConfig"
+                    title="Configuración Avanzada"
+                  >
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </button>
+                </div>
+
+                <div class="collapse mt-3" id="advancedConfig">
+                  <div class="card card-body bg-body-secondary border-0">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label
+                          class="form-label small text-secondary-emphasis fw-bold"
+                          >Categoría</label
+                        >
+                        <select id="tpl-category" class="form-select">
+                          <option value="Personal" data-icon="👤" selected>
+                            👤 Personal (Default)
+                          </option>
+                          <option value="Salud" data-icon="🩺">🩺 Salud</option>
+                          <option value="Financiero" data-icon="💰">
+                            💰 Financiero
+                          </option>
+                          <option value="Trabajo" data-icon="💼">
+                            💼 Trabajo
+                          </option>
+                          <option value="Hogar" data-icon="🏠">🏠 Hogar</option>
+                          <option value="Alimentación" data-icon="🥗">
+                            🥗 Alimentación
+                          </option>
+                          <option value="Formación" data-icon="🎓">
+                            🎓 Formación
+                          </option>
+                          <option value="Personalizada" data-icon="⚙️">
+                            ⚙️ Personalizada
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label
+                          class="form-label small text-secondary-emphasis fw-bold"
+                          >Icono (Emoji)</label
+                        >
+                        <input
+                          autocomplete="off"
+                          spellcheck="false"
+                          type="text"
+                          id="tpl-icon"
+                          class="form-control"
+                          value="👤"
+                        />
+                      </div>
+
+                      <div class="col-12">
+                        <label
+                          class="form-label small text-secondary-emphasis fw-bold"
+                          >Descripción</label
+                        >
+                        <textarea
+                          id="tpl-description"
+                          class="form-control"
+                          rows="2"
+                          placeholder="Propósito de la plantilla..."
+                        ></textarea>
+                      </div>
+                      <div class="col-12">
+                        <label
+                          class="form-label small text-secondary-emphasis fw-bold"
+                          >Documentos Relacionados (IDs separados por
+                          coma)</label
+                        >
+                        <div class="input-group">
+                          <span class="input-group-text"
+                            ><i class="fa-solid fa-link"></i
+                          ></span>
+                          <input
+                            type="text"
+                            id="tpl-related-docs"
+                            class="form-control"
+                            placeholder="Ej: doc_1715..., doc_1716..."
+                          />
+                        </div>
+                        <div class="form-text small">
+                          Estos documentos aparecerán como referencia rápida al
+                          editar documentos basados en esta plantilla.
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="tpl-encrypted"
+                            style="cursor: pointer"
+                          />
+                          <label
+                            class="form-check-label text-danger small"
+                            for="tpl-encrypted"
+                          >
+                            <i class="fa-solid fa-lock me-1"></i>
+                            Habilitar Cifrado de Extremo a Extremo
+                          </label>
+                        </div>
+                        <div class="form-text small">
+                          Por defecto, las plantillas son de acceso rápido (No
+                          cifradas).
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+              <div class="card-header bg-body-secondary fw-bold text-body">
+                2. Estructura del Documento (Arrastre elementos aquí)
+              </div>
+              <div class="card-body bg-body-tertiary p-4">
+                <div
+                  id="designer-canvas"
+                  class="canvas p-4 shadow-sm"
+                  style="min-height: 250px; background-color: white"
+                ></div>
+              </div>
+            </div>
+
+            <div
+              class="card shadow-lg border-0 mb-5 sticky-bottom-custom no-print"
+            >
+              <div
+                class="card-body text-bg-primary rounded-3 border border-secondary"
+              >
+                <div class="row align-items-center">
+                  <div class="col-md-12">
+                    <h6 class="mb-2 text-bg-primary small text-uppercase">
+                      <i class="fa-solid fa-shapes me-1"></i> 3. Elementos
+                      Disponibles
+                    </h6>
+                    <div id="tpl-elements" class="d-flex flex-wrap gap-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="view-documents" class="view-section" style="display: none">
+          <div id="doc-list-view">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="text-body">
+                <i class="fa-solid fa-file-invoice text-success"></i> Mis
+                Documentos
+              </h3>
+              <button id="btn-go-create-doc" class="btn btn-success shadow-sm">
+                <i class="fa-solid fa-plus"></i> Nuevo Documento
+              </button>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="fa-solid fa-search"></i>
+                  </span>
+                  <input
+                    autocomplete="off"
+                    spellcheck="false"
+                    readonly
+                    onfocus="this.removeAttribute('readonly')"
+                    type="text"
+                    id="doc-search"
+                    class="form-control"
+                    placeholder="Buscar por título..."
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table
+                class="table table-hover align-middle shadow-sm rounded overflow-hidden mb-0"
+              >
+                <thead class="table-light">
+                  <tr>
+                    <th style="width: 120px">Fecha</th>
+                    <th>Plantilla Base</th>
+                    <th>Título del Documento</th>
+                    <th style="width: 120px">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="doc-table-body"></tbody>
+              </table>
+            </div>
+            <nav class="mt-3">
+              <ul
+                class="pagination justify-content-center"
+                id="doc-pagination"
+              ></ul>
+            </nav>
+          </div>
+
+          <div id="doc-editor-view" style="display: none">
+            <div class="d-flex justify-content-between mb-3 no-print">
+              <button id="btn-back-doc-list" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Cancelar
+              </button>
+              <div class="d-flex gap-2" id="doc-actions-container"></div>
+            </div>
+            <div class="row mb-3 no-print">
+              <div class="col-md-12">
+                <input
+                  autocomplete="off"
+                  spellcheck="false"
+                  readonly
+                  onfocus="this.removeAttribute('readonly')"
+                  type="text"
+                  id="doc-title-input"
+                  class="form-control form-control-lg fw-bold text-primary"
+                  placeholder="Título del Documento"
+                />
+              </div>
+            </div>
+            <div
+              id="document-canvas"
+              class="canvas shadow-sm row p-4 bg-white"
+            ></div>
+          </div>
+        </div>
+
+        <div id="view-github" class="view-section" style="display: none"></div>
+
+        <div
+          id="view-settings"
+          class="view-section"
+          style="display: none"
+        ></div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modal-related-doc"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-light">
+            <h5 class="modal-title">
+              <i class="fa-solid fa-book-open me-2"></i>Referencia de Documento
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body bg-body-tertiary"
+            id="modal-related-body"
+          ></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
