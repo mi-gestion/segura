@@ -1,0 +1,1 @@
+import{B as t}from"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class s extends t{render(){const e=this.getAttribute("title")||"";this.innerHTML=`<div class="mt-3 text-secondary fw-semibold small text-uppercase tracking-wider">${e}</div><hr class="mt-1 mb-2 opacity-25">`}}customElements.define("viewer-subsection",s);export{s as ViewerSubsection};

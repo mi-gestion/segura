@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class i extends e{render(){const t=this.getAttribute("title")||"Seleccionar";this.innerHTML=`<strong mt-3>${t}</strong><hr>`}}customElements.define("editor-section",i);export{i as EditorSection};

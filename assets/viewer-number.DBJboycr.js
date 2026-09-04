@@ -1,0 +1,1 @@
+import{B as s}from"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class r extends s{render(){const e=this.getAttribute("edit-value")||"---",t=`<div class="py-1" style="${this.getCommonStyles()}">${e}</div>`;this.innerHTML=this.renderViewerStructure(t)}}customElements.define("viewer-number",r);export{r as ViewerNumber};

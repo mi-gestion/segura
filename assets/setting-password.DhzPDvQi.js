@@ -1,0 +1,1 @@
+import{SettingInput as t}from"./setting-input.BxCTl6jY.js";import"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class e extends t{}customElements.define("setting-password",e);export{e as SettingPassword};

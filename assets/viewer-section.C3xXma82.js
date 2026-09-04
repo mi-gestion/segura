@@ -1,0 +1,1 @@
+import{B as t}from"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class s extends t{render(){const e=this.getAttribute("title")||"Seleccionar";this.innerHTML=`<strong class="mt-3">${e}</strong><hr>`}}customElements.define("viewer-section",s);export{s as ViewerSection};

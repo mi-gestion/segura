@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class s extends e{render(){const t=this.getAttribute("title")||"Subsección";this.innerHTML=`<div class="mt-3 text-secondary fw-semibold small text-uppercase tracking-wider">${t}</div><hr class="mt-1 mb-2 opacity-25">`}}customElements.define("editor-subsection",s);export{s as EditorSubsection};

@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class s extends e{render(){this.style.display="none",this.innerHTML=""}}customElements.define("viewer-script",s);export{s as ViewerScript};

@@ -1,0 +1,1 @@
+import{SettingMedia as e}from"./setting-media.BfFeusJX.js";import"./BaseElement.BIf2Qi2B.js";import"./Utils.2v3ifB9J.js";class t extends e{}customElements.define("setting-image",t);export{t as SettingImage};
