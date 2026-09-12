@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class t extends e{render(){this.innerHTML=""}}customElements.define("viewer-input",t);export{t as ViewerInput};

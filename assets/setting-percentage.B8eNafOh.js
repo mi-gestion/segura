@@ -1,0 +1,1 @@
+import{SettingNumeric as e}from"./setting-numeric.DFkyusjU.js";import"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class t extends e{}customElements.define("setting-percentage",t);export{t as SettingPercentage};

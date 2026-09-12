@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"display-mode","true-text","false-text","theme-color"]}render(){this.renderEditorField()}}customElements.define("editor-boolean",t);export{t as EditorBoolean};

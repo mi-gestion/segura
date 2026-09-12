@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class r extends e{render(){}}customElements.define("viewer-divider",r);export{r as ViewerDivider};

@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class t extends e{render(){}}customElements.define("printer-datetime",t);export{t as PrinterDatetime};

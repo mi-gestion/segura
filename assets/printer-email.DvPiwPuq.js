@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class r extends e{render(){this.renderPrinterField()}}customElements.define("printer-email",r);export{r as PrinterEmail};

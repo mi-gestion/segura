@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"min-time","max-time"]}render(){this.renderEditorField()}}customElements.define("editor-time",t);export{t as EditorTime};

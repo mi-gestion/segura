@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.pPTaffjx.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"overflow","max-height","default-content"]}render(){this.renderViewerField()}}customElements.define("viewer-html",t);export{t as ViewerHtml};

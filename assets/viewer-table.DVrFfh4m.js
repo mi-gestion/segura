@@ -1,0 +1,40 @@
+import{B as f}from"./BaseElement.pPTaffjx.js";import{T as p}from"./TableUtils.BbNPy2Ui.js";import"./preload-helper.BUfFKGiv.js";import"./FormulaEngine.DHpTffcI.js";class g extends f{constructor(){super(),this.columns=[],this.rows=[],this._searchTerm="",this._sortFieldId=null,this._sortAsc=!0}setData(t){if(t.columns&&(this.columns=t.columns),t.value)if(Array.isArray(t.value))this.rows=t.value;else if(typeof t.value=="string")try{this.rows=JSON.parse(t.value)}catch(e){console.error("[ViewerTable] Error al parsear los datos de la tabla:",e.message),this.rows=[]}else this.rows=[];else this.rows=[];super.setData(t)}_isNumeric(t){return["setting-number","setting-currency","setting-percentage"].includes(t)}_getGridColumns(){return this.columns.filter(t=>!(t.hideView===!0||t.hideView==="true"||t.hideView===""||t["hide-view"]===!0||t["hide-view"]==="true"||t["hide-view"]===""))}render(){const t=this.getAttribute("title")||"Tabla de Datos",e=this.getAttribute("span-edit-viewer")||"12";this.className=`col-md-${e} mb-4`,this.innerHTML=`
+      <div class="viewer-container">
+        <div class="d-flex justify-content-between align-items-end mb-2">
+            <label class="d-block small text-muted text-uppercase fw-semibold mb-0" style="font-size: 0.7rem;">
+                ${t}
+            </label>
+            
+            <div class="input-group input-group-sm" style="width: 220px;">
+                <span class="input-group-text border-end-0 text-muted ps-2 pe-1"><i class="fa-solid fa-search"></i></span>
+                <input autocomplete="off" spellcheck="false" type="text" class="form-control form-control-sm border-start-0 shadow-none ps-1" 
+                       id="search-${this.id}" placeholder="Filtrar..." value="${this._searchTerm}">
+                ${this._searchTerm?`<button class="btn btn-outline-secondary border-start-0 text-muted" id="btn-clear-${this.id}"><i class="fa-solid fa-times"></i></button>`:""}
+            </div>
+        </div>
+        
+        <div class="card shadow-sm border-0 overflow-hidden">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mb-0">
+                    <thead class=" text-body-secondary small text-uppercase">
+                        <tr id="table-header-${this.id}"></tr>
+                        <tr id="table-header-totals-${this.id}" class="table-light d-none"></tr>
+                    </thead>
+                    <tbody id="table-body-${this.id}"></tbody>
+                    <tfoot id="table-footer-${this.id}" class=" fw-bold text-body small" style="border-top: 2px solid #dee2e6;"></tfoot>
+                </table>
+            </div>
+            <div id="empty-state-${this.id}" class="text-center py-3 text-muted small bg-light" style="display:none;">
+                Sin registros coincidentes.
+            </div>
+        </div>
+      </div>
+    `,this._renderHeader(),this._renderRows(),this._attachEvents()}getWhatsapp(){const t=this.getAttribute("title"),e=this.rows||[],s=this._getGridColumns().filter(l=>!l.hideWhatsapp);if(s.length===0)return`*${t}:* (Sin columnas visibles)`;if(e.length===0)return`*${t}:* (Sin datos)`;const a=parseInt(localStorage.getItem("doc_engine_mcw")||"35"),o=(l,r)=>{const c=l.find(m=>m.fieldId===r.id);let n=c?String(c.value):"";if((n==="null"||n==="undefined")&&(n=""),r.tag==="setting-currency")n=`$ ${parseFloat(n||0).toFixed(2)}`;else if(r.tag==="setting-percentage")n=`${n}%`;else if(r.tag==="setting-boolean")n=n==="true"?"SI":"NO";else if(r.tag==="setting-url")try{const m=JSON.parse(n);let u=m.url||"";if(u){u.startsWith("http")||(u="https://"+u);try{u=encodeURI(decodeURI(u))}catch{}u=encodeURI(u)}n=m.text?`${m.text} (${u})`:u}catch(m){console.error("[ViewerTable] Error al procesar la URL:",m.message)}return n},i=s.map(l=>{let r=l.title.length;return e.forEach(c=>{const n=o(c,l);n.length>r&&(r=n.length)}),r}),h=i.reduce((l,r)=>l+r,0)+s.length*3;let d=`
+*${t}*:
+`;return h>a?e.forEach((l,r)=>{d+=`_Item ${r+1}_
+`,s.forEach(c=>{const n=o(l,c);d+=`${c.title}: ${n}
+`}),d+=`
+`}):(d+="```\n",d+=s.map((l,r)=>l.title.padEnd(i[r])).join(" | ")+`
+`,d+=s.map((l,r)=>"-".repeat(i[r])).join("-|-")+`
+`,e.forEach(l=>{d+=s.map((r,c)=>o(l,r).padEnd(i[c])).join(" | ")+`
+`}),d+="```\n"),d}_attachEvents(){const t=this.querySelector(`#search-${this.id}`);t.oninput=s=>{this._searchTerm=s.target.value,this._renderRows();const a=this.querySelector(`#btn-clear-${this.id}`);if(this._searchTerm&&!a){this.render();const o=this.querySelector(`#search-${this.id}`);o.focus(),o.setSelectionRange(o.value.length,o.value.length)}else!this._searchTerm&&a&&(this.render(),this.querySelector(`#search-${this.id}`).focus())};const e=this.querySelector(`#btn-clear-${this.id}`);e&&(e.onclick=()=>{this._searchTerm="",this.render()})}_renderHeader(){const t=this.querySelector(`#table-header-${this.id}`);if(!t)return;const e=this._getGridColumns();if(e.length===0){t.innerHTML='<th class="px-3 py-2">Sin Columnas Configuradas</th>';return}t.innerHTML="",e.forEach(s=>{const a=document.createElement("th"),o=s.alignment||(this._isNumeric(s.tag)?"right":"left");a.className="fw-bold px-3 py-2 border-bottom text-nowrap user-select-none",a.style.textAlign=o==="right"?"right":o==="center"?"center":"left",a.style.cursor="pointer",a.title="Click para ordenar";let i='<i class="fa-solid fa-sort text-muted opacity-25 ms-1 small"></i>';this._sortFieldId===s.id&&(this._sortAsc?i='<i class="fa-solid fa-sort-up text-primary ms-1 small"></i>':i='<i class="fa-solid fa-sort-down text-primary ms-1 small"></i>'),a.innerHTML=`<span>${s.title}</span>${i}`,a.onclick=()=>{this._sortFieldId===s.id?this._sortAsc=!this._sortAsc:(this._sortFieldId=s.id,this._sortAsc=!0),this._renderHeader(),this._renderRows()},t.appendChild(a)}),this._renderHeaderTotals(e)}_renderHeaderTotals(t){const e=this.querySelector(`#table-header-totals-${this.id}`);if(!e)return;if(!t.some(a=>a.total&&(a.totalPosition||"tfoot")==="thead")){e.innerHTML="",e.classList.add("d-none");return}e.classList.remove("d-none"),e.innerHTML=t.map(a=>{const o=a.alignment||(this._isNumeric(a.tag)?"right":"left");return`<th class="px-3 py-1 border-top fw-bold text-primary" style="text-align: ${o==="right"?"right":o==="center"?"center":"left"}; font-size: 0.8rem;" id="th-total-${this.id}-${a.id}"></th>`}).join("")}_renderRows(){const t=this.querySelector(`#table-body-${this.id}`),e=this.querySelector(`#empty-state-${this.id}`);if(!t)return;t.innerHTML="";let s=p.filterRows([...this.rows],this._searchTerm);if(s=p.sortRows(s,this._sortFieldId,this._sortAsc,this.columns),s.length===0){e&&(e.style.display="block"),this._renderFooter(s);return}e&&(e.style.display="none");const a=this._getGridColumns();s.forEach(o=>{const i=document.createElement("tr");a.forEach(h=>{const d=document.createElement("td"),l=h.alignment||(this._isNumeric(h.tag)?"right":"left");d.style.textAlign=l==="right"?"right":l==="center"?"center":"left",d.className="px-3 py-2";const r=o.find(m=>m.fieldId===h.id),c=h.tag.replace("setting-","viewer-"),n=document.createElement(c);n.setAttribute("table",""),n.setData&&n.setData({...h,...r,title:"",spanEV:12,options:h.options,currency:h.currency}),d.appendChild(n),i.appendChild(d)}),t.appendChild(i)}),this._renderFooter(s)}_renderFooter(t){const e=this._getGridColumns();e.forEach(i=>{if(!i.total||(i.totalPosition||"tfoot")!=="thead")return;const h=this.querySelector(`#th-total-${this.id}-${i.id}`);h&&(h.innerHTML=t&&t.length>0?p.formatTotalHtml(p.calculateTotal(t,i.id),i):"")});const s=this.querySelector(`#table-footer-${this.id}`);if(!s||(s.innerHTML="",!e.some(i=>i.total&&(i.totalPosition||"tfoot")!=="thead")||!t||t.length===0))return;let o="<tr>";e.forEach(i=>{const h=i.alignment||(this._isNumeric(i.tag)?"right":"left"),d=h==="right"?"right":h==="center"?"center":"left";let l="";if(i.total&&(i.totalPosition||"tfoot")!=="thead"){const r=p.calculateTotal(t,i.id);l=p.formatTotalHtml(r,i)}o+=`<td class="px-3 py-2" style="text-align: ${d};">${l}</td>`}),o+="</tr>",s.innerHTML=o}}customElements.define("viewer-table",g);export{g as ViewerTable};
