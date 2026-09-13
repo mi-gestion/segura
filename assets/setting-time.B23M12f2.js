@@ -1,0 +1,1 @@
+import{SettingDatetime as t}from"./setting-datetime.DCz_SFIS.js";import"./BaseElement.d_VolxdG.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-time",e);export{e as SettingTime};
