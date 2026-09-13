@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.d_VolxdG.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class r extends e{render(){this.renderPrinterField()}}customElements.define("printer-text",r);export{r as PrinterText};
