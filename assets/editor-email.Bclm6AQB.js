@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.d_VolxdG.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"max-length","placeholder-text"]}render(){this.renderEditorField()}}customElements.define("editor-email",t);export{t as EditorEmail};

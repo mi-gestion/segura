@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual de Usuario - DocEngine v3</title>
+    <link
+      id="theme-link"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Estilos personalizados para el Manual */
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      .sidebar {
+        position: sticky;
+        top: 20px;
+        height: calc(100vh - 40px);
+        overflow-y: auto;
+      }
+      .nav-pills .nav-link {
+        color: #495057;
+        border-radius: 8px;
+        margin-bottom: 5px;
+      }
+      .nav-pills .nav-link.active {
+        background-color: #0d6efd;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+      }
+      .nav-pills .nav-link:hover:not(.active) {
+        background-color: #e9ecef;
+      }
+      .module-section {
+        scroll-margin-top: 20px;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+      .module-header {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .module-body {
+        padding: 2rem;
+        background-color: white;
+      }
+      .step-badge {
+        display: inline-flex;
+        width: 28px;
+        height: 28px;
+        background: #e9ecef;
+        color: #495057;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin-right: 10px;
+      }
+      .alert-tip {
+        border-left: 4px solid #0dcaf0;
+        background-color: #f2fdff;
+      }
+      .alert-warning-custom {
+        border-left: 4px solid #ffc107;
+        background-color: #fffbf0;
+      }
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+
+      /* Ajustes Responsive */
+      @media (max-width: 991px) {
+        .sidebar {
+          position: static;
+          height: auto;
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        // Obtener el parámetro 'theme' de la URL
+        const params = new URLSearchParams(window.location.search);
+        const themeUrl = params.get("theme");
+
+        // Si existe el parámetro, cambiar el href del link
+        if (themeUrl) {
+          document.getElementById("theme-link").setAttribute("href", themeUrl);
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-light py-4">
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-lg-3">
+          <nav class="sidebar pe-3">
+            <div class="d-flex align-items-center mb-4 px-2">
+              <i class="fa-solid fa-book-open text-primary fa-2x me-2"></i>
+              <div>
+                <h5 class="fw-bold mb-0">Manual de Usuario</h5>
+                <small class="text-muted">DocEngine v3.0</small>
+              </div>
+            </div>
+
+            <div
+              class="nav flex-column nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <a class="nav-link active" href="#mod-1-acceso"
+                ><i class="fa-solid fa-shield-halved me-2"></i>1. Acceso y
+                Seguridad</a
+              >
+              <a class="nav-link" href="#mod-2-plantillas"
+                ><i class="fa-solid fa-pen-ruler me-2"></i>2. Diseñador
+                (Plantillas)</a
+              >
+              <a class="nav-link" href="#mod-3-documentos"
+                ><i class="fa-solid fa-file-contract me-2"></i>3. Mis
+                Documentos</a
+              >
+              <a class="nav-link" href="#mod-4-archivos"
+                ><i class="fa-solid fa-folder-tree me-2"></i>4. Bóveda de
+                Archivos</a
+              >
+              <a class="nav-link" href="#mod-5-salida"
+                ><i class="fa-solid fa-print me-2"></i>5. Impresión y Salida</a
+              >
+              <a class="nav-link" href="#mod-6-config"
+                ><i class="fa-solid fa-gear me-2"></i>6. Configuración</a
+              >
+            </div>
+
+            <div class="mt-4 p-3 bg-white rounded shadow-sm border">
+              <h6 class="fw-bold text-dark">
+                <i class="fa-solid fa-life-ring me-2 text-warning"></i
+                >¿Necesitas Ayuda?
+              </h6>
+              <p class="small text-muted mb-0">
+                Si olvidas tu Frase Maestra, recuerda que no se puede recuperar.
+              </p>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-lg-9">
+          <section id="mod-1-acceso" class="module-section">
+            <div class="module-header d-flex align-items-center">
+              <div class="feature-icon bg-primary bg-opacity-10 text-primary">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h4 class="mb-0 fw-bold">Módulo 1: Acceso y Seguridad</h4>
+                <p class="text-muted mb-0 small">
+                  La puerta de entrada a tu información segura.
+                </p>
+              </div>
+            </div>
+            <div class="module-body">
+              <h5 class="fw-bold text-dark mb-3">
+                Concepto Clave: Doble Nivel de Seguridad
+              </h5>
+              <p>El sistema protege tus datos con dos llaves diferentes:</p>
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <div class="p-3 border rounded bg-light h-100">
+                    <h6 class="fw-bold text-primary">
+                      <i class="fa-solid fa-user me-2"></i>Nivel 1: Login
+                    </h6>
+                    <p class="small text-secondary mb-0">
+                      Es tu usuario y contraseña normal. Te permite entrar a la
+                      "oficina", pero los cajones siguen cerrados.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="p-3 border rounded bg-success bg-opacity-10 h-100"
+                  >
+                    <h6 class="fw-bold text-success">
+                      <i class="fa-solid fa-key me-2"></i>Nivel 2: Frase Maestra
+                    </h6>
+                    <p class="small text-secondary mb-0">
+                      Es la llave que abre los cajones. Sin ella, los datos
+                      cifrados son ilegibles, incluso para el sistema.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="fw-bold mt-4">Pasos Comunes</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex px-0">
+                  <span class="step-badge">1</span>
+                  <div>
+                    <strong>Registro:</strong> Crea tu cuenta con un correo
+                    válido. Recibirás un email de confirmación que debes validar
+                    antes de entrar.
+                  </div>
+                </li>
+                <li class="list-group-item d-flex px-0">
+                  <span class="step-badge">2</span>
+                  <div>
+                    <strong>Desbloqueo:</strong> Al entrar por primera vez,
+                    verás el campo "Frase Maestra". Escríbela correctamente para
+                    descifrar tus datos locales.
+                  </div>
+                </li>
+                <li class="list-group-item d-flex px-0">
+                  <span class="step-badge">3</span>
+                  <div>
+                    <strong>Recuperación:</strong> Si olvidas tu contraseña de
+                    login, usa "¿Olvidaste tu contraseña?". <br />
+                    <span class="text-danger small fw-bold"
+                      ><i class="fa-solid fa-triangle-exclamation"></i> Nota: La
+                      Frase Maestra NO se puede recuperar por correo.</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="mod-2-plantillas" class="module-section">
+            <div class="module-header d-flex align-items-center">
+              <div class="feature-icon bg-warning bg-opacity-10 text-warning">
+                <i class="fa-solid fa-pen-ruler"></i>
+              </div>
+              <div>
+                <h4 class="mb-0 fw-bold">Módulo 2: Diseñador de Plantillas</h4>
+                <p class="text-muted mb-0 small">
+                  Donde defines la estructura de tus documentos.
+                </p>
+              </div>
+            </div>
+            <div class="module-body">
+              <p>
+                Antes de llenar un documento, debes crear su "molde" o
+                plantilla.
+              </p>
+
+              <div class="alert alert-tip mb-4">
+                <i class="fa-solid fa-lightbulb me-2 text-info"></i>
+                <strong>Tip:</strong> Piensa en la plantilla como un formulario
+                en blanco. Tú decides qué preguntas hacer.
+              </div>
+
+              <h5 class="fw-bold">Funciones del Editor</h5>
+              <div class="table-responsive">
+                <table class="table table-sm table-hover border">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Elemento</th>
+                      <th>Descripción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="badge bg-secondary">Campos Básicos</span>
+                      </td>
+                      <td>
+                        Texto, Números, Fechas, Moneda, Selección, Casillas de
+                        verificación.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge bg-primary">Tablas</span></td>
+                      <td>
+                        Permite agregar filas infinitas de datos (ej: lista de
+                        productos en una factura). Incluye totales automáticos.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge bg-success">Fórmulas</span></td>
+                      <td>
+                        Define operaciones matemáticas (Suma, Resta,
+                        Multiplicación) entre campos numéricos o totales de
+                        tablas.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="badge bg-dark">Secciones</span></td>
+                      <td>
+                        Agrupa campos bajo un título. En el documento final, se
+                        convertirán en pestañas para facilitar la navegación.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mt-3">
+                <h6 class="fw-bold">
+                  <i class="fa-solid fa-lock text-success me-2"></i>Privacidad
+                  de la Plantilla
+                </h6>
+                <p class="small text-muted">
+                  Al crear una plantilla, verás un interruptor
+                  <strong>"Cifrar Datos"</strong>. Si lo activas, todos los
+                  documentos creados con este molde se guardarán encriptados y
+                  solo serán visibles con tu Frase Maestra.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="mod-3-documentos" class="module-section">
+            <div class="module-header d-flex align-items-center">
+              <div class="feature-icon bg-success bg-opacity-10 text-success">
+                <i class="fa-solid fa-file-contract"></i>
+              </div>
+              <div>
+                <h4 class="mb-0 fw-bold">Módulo 3: Gestión de Documentos</h4>
+                <p class="text-muted mb-0 small">Tu trabajo del día a día.</p>
+              </div>
+            </div>
+            <div class="module-body">
+              <p>
+                Aquí es donde llenas la información real usando las plantillas
+                que diseñaste.
+              </p>
+
+              <h5 class="fw-bold">Herramientas de Edición</h5>
+
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <h6 class="fw-bold text-primary">Cálculos en Vivo</h6>
+                  <p class="small text-muted">
+                    No necesitas calculadora. Escribe las cantidades y precios,
+                    y el sistema actualizará los totales e impuestos
+                    automáticamente.
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="fw-bold text-primary">
+                    Botón de Referencia (Ref)
+                    <i class="fa-solid fa-link text-secondary"></i>
+                  </h6>
+                  <p class="small text-muted">
+                    ¿Necesitas ver un precio de otra lista mientras haces una
+                    factura? Haz clic en el botón flotante "Ref" abajo a la
+                    izquierda para abrir una ventana de consulta rápida sin
+                    salir de tu trabajo.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex align-items-center p-3 bg-light rounded border"
+              >
+                <i
+                  class="fa-solid fa-cloud-arrow-up fa-2x text-secondary me-3"
+                ></i>
+                <div>
+                  <strong class="d-block"
+                    >Guardado Automático de Seguridad</strong
+                  >
+                  <span class="small text-muted"
+                    >Tus cambios se guardan en la nube (Firebase). Si la
+                    plantilla es privada, los datos viajan codificados
+                    matemáticamente.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="mod-4-archivos" class="module-section">
+            <div class="module-header d-flex align-items-center">
+              <div class="feature-icon bg-dark bg-opacity-10 text-dark">
+                <i class="fa-solid fa-folder-tree"></i>
+              </div>
+              <div>
+                <h4 class="mb-0 fw-bold">
+                  Módulo 4: Bóveda de Archivos (GitHub)
+                </h4>
+                <p class="text-muted mb-0 small">
+                  Almacén para imágenes, audios y adjuntos pesados.
+                </p>
+              </div>
+            </div>
+            <div class="module-body">
+              <p>
+                Para no hacer lento el sistema, las fotos y archivos pesados se
+                guardan en una bóveda separada (GitHub).
+              </p>
+
+              <h5 class="fw-bold mt-3">Operaciones Básicas</h5>
+              <div class="accordion" id="accordionFiles">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                    >
+                      <i class="fa-solid fa-upload me-2 text-primary"></i> Subir
+                      Archivos (Upload)
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFiles"
+                  >
+                    <div class="accordion-body small">
+                      1. Ve a la pestaña de GitHub.<br />
+                      2. Elige una carpeta (ej: "Fotos_Obra").<br />
+                      3. Selecciona tu archivo y ponle un nombre.<br />
+                      4. Pulsa "Subir". Se guardará en tu repositorio privado.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                    >
+                      <i class="fa-solid fa-eye me-2 text-success"></i>
+                      Visualización Segura
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFiles"
+                  >
+                    <div class="accordion-body small">
+                      Al hacer clic en el ojo (<i class="fa-regular fa-eye"></i
+                      >), el sistema valida quién eres y descarga la imagen
+                      temporalmente solo para ti. No existen enlaces públicos
+                      que otros puedan robar.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="mod-5-salida" class="module-section">
+            <div class="module-header d-flex align-items-center">
+              <div class="feature-icon bg-info bg-opacity-10 text-info">
+                <i class="fa-solid fa-print"></i>
+              </div>
+              <div>
+                <h4 class="mb-0 fw-bold">Módulo 5: Salida y Reportes</h4>
+                <p class="text-muted mb-0 small">
+                  Cómo sacar la información del sistema.
+                </p>
+              </div>
+            </div>
+            <div class="module-body">
+              <div class="row text-center g-3">
+                <div class="col-md-4">
+                  <div class="p-3 border rounded h-100 hover-shadow">
+                    <i
+                      class="fa-brands fa-whatsapp fa-2x text-success mb-2"
+                    ></i>
+                    <h6 class="fw-bold">WhatsApp</h6>
+                    <p class="small text-muted mb-0">
+                      Genera un resumen de texto limpio listo para pegar en el
+                      chat.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 border rounded h-100 hover-shadow">
+                    <i class="fa-solid fa-file-pdf fa-2x text-danger mb-2"></i>
+                    <h6 class="fw-bold">PDF / Impresión</h6>
+                    <p class="small text-muted mb-0">
+                      Elige entre modo "Visual" (bonito), "Compacto" (ahorra
+                      papel) o "Lectura Fácil".
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 border rounded h-100 hover-shadow">
+                    <i class="fa-solid fa-table fa-2x text-primary mb-2"></i>
+                    <h6 class="fw-bold">CSV / Excel</h6>
+                    <p class="small text-muted mb-0">
+                      Descarga los datos de las tablas para analizarlos en
+                      Excel.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="mod-6-config" class="module-section">
+            <div class="module-header d-flex align-items-center">
+              <div
+                class="feature-icon bg-secondary bg-opacity-10 text-secondary"
+              >
+                <i class="fa-solid fa-gears"></i>
+              </div>
+              <div>
+                <h4 class="mb-0 fw-bold">
+                  Módulo 6: Configuración y Seguridad
+                </h4>
+                <p class="text-muted mb-0 small">
+                  Panel de control y ajustes técnicos.
+                </p>
+              </div>
+            </div>
+            <div class="module-body">
+              <h5 class="fw-bold text-danger mb-3">
+                <i class="fa-solid fa-triangle-exclamation me-2"></i>Zona de
+                Peligro (Seguridad)
+              </h5>
+              <div class="alert alert-warning-custom mb-4">
+                <ul class="mb-0 small">
+                  <li>
+                    <strong>Cambiar Frase Maestra:</strong> Actualiza tu llave.
+                    Requiere saber la frase actual.
+                  </li>
+                  <li>
+                    <strong>Reiniciar Frase Maestra:</strong> Úsalo SOLO si
+                    olvidaste tu frase.
+                    <span class="fw-bold text-danger">ADVERTENCIA:</span> Esto
+                    creará una llave nueva, pero perderás acceso a todos los
+                    documentos antiguos que estaban cifrados.
+                  </li>
+                </ul>
+              </div>
+
+              <h5 class="fw-bold mb-3">Conexiones</h5>
+              <p class="small text-muted">
+                Aquí configuras el acceso a la "Bóveda Multimedia". Necesitas
+                ingresar tu Usuario de GitHub, el nombre del Repositorio y tu
+                <strong>Token de Acceso Personal (PAT)</strong>.
+              </p>
+
+              <h5 class="fw-bold mb-3">Respaldos (Backup)</h5>
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary btn-sm">
+                  <i class="fa-solid fa-download me-2"></i>Descargar Copia Local
+                </button>
+                <button class="btn btn-outline-secondary btn-sm">
+                  <i class="fa-solid fa-upload me-2"></i>Restaurar Copia
+                </button>
+              </div>
+              <p class="mt-2 x-small text-muted">
+                Descarga toda tu base de datos en un archivo JSON para tenerla
+                segura en tu computadora.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Script simple para navegación suave
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+          // Actualizar clase active manualmente si se desea
+          document
+            .querySelectorAll(".nav-link")
+            .forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
