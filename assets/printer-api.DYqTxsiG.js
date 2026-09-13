@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.d_VolxdG.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){this.style.display="none",this.innerHTML=""}}customElements.define("printer-api",t);export{t as PrinterApi};

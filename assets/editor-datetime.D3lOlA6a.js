@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.d_VolxdG.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){}}customElements.define("editor-datetime",t);export{t as EditorDatetime};
