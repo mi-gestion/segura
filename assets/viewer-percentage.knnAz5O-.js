@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.VF2wA_rP.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"decimals","separators"]}render(){this.renderViewerField()}getWhatsapp(){return this.getWhatsappField()}}customElements.define("viewer-percentage",t);export{t as ViewerPercentage};

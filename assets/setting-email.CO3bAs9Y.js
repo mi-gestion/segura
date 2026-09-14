@@ -1,0 +1,1 @@
+import{SettingInput as t}from"./setting-input.D2zfCgNz.js";import"./BaseElement.VF2wA_rP.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-email",e);export{e as SettingEmail};
