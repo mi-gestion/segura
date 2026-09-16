@@ -1,0 +1,1 @@
+import{SettingInput as t}from"./setting-input.RQSuEEn5.js";import"./BaseElement.9fGzvbuo.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-text",e);export{e as SettingText};
