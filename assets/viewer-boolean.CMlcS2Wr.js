@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.9fGzvbuo.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"true-text","false-text"]}render(){this.renderViewerField()}getWhatsapp(){return this.getWhatsappField()}}customElements.define("viewer-boolean",t);export{t as ViewerBoolean};
