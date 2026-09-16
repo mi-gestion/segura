@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.9fGzvbuo.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"min","max","decimals","show-steppers"]}render(){this.renderEditorField()}}customElements.define("editor-number",t);export{t as EditorNumber};

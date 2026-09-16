@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.9fGzvbuo.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){this.style.display="none",this.innerHTML=""}}customElements.define("printer-script",t);export{t as PrinterScript};
