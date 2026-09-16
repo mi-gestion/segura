@@ -1,0 +1,1 @@
+import{SettingMedia as t}from"./setting-media.-1a2KFcg.js";import"./BaseElement.9fGzvbuo.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-audio",e);export{e as SettingAudio};
