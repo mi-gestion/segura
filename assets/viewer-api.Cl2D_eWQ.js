@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.BA7nnqi4.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class i extends e{render(){this.style.display="none",this.innerHTML=""}}customElements.define("viewer-api",i);export{i as ViewerApi};

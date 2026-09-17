@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.BA7nnqi4.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"true-text","false-text"]}render(){this.renderPrinterField()}}customElements.define("printer-boolean",t);export{t as PrinterBoolean};

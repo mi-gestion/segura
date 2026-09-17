@@ -1,0 +1,1 @@
+import{SettingNumeric as t}from"./setting-numeric.Dl3eM_ue.js";import"./BaseElement.BA7nnqi4.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-currency",e);export{e as SettingCurrency};

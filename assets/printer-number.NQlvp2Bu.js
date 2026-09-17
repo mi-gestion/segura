@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.BA7nnqi4.js";import"./Elements.B8W_hxTW.js";import"./FormulaEngine.CYGke5JL.js";class r extends e{static get observedAttributes(){return[...super.observedAttributes,"decimals","separators","unit"]}render(){this.renderPrinterField()}}customElements.define("printer-number",r);export{r as PrinterNumber};
