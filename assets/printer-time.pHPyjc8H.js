@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.D4tveIlI.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class r extends e{render(){this.renderPrinterField()}}customElements.define("printer-time",r);export{r as PrinterTime};

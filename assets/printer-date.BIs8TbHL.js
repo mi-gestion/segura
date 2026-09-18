@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.D4tveIlI.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"display-mask"]}render(){this.renderPrinterField()}}customElements.define("printer-date",t);export{t as PrinterDate};

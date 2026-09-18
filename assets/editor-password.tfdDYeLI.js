@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.D4tveIlI.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"max-length","placeholder-text"]}render(){this.renderEditorField()}}customElements.define("editor-password",t);export{t as EditorPassword};

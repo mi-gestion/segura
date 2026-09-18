@@ -1,0 +1,1 @@
+import{SettingDivider as t}from"./setting-divider.B4GNQJdD.js";import"./BaseElement.D4tveIlI.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-subsection",e);export{e as SettingSubsection};

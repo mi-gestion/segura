@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.D4tveIlI.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){this.renderViewerField()}getWhatsapp(){return this.getWhatsappField()}}customElements.define("viewer-text",t);export{t as ViewerText};
