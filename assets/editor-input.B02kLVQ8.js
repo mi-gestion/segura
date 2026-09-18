@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.B8W23fke.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){this.innerHTML='<div class="alert alert-danger small">Este es un componente fachada y no debe renderizarse.</div>'}}customElements.define("editor-input",t);export{t as EditorInput};

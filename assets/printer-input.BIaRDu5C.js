@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.B8W23fke.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){this.innerHTML=""}}customElements.define("printer-input",t);export{t as PrinterInput};

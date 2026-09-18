@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.B8W23fke.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class r extends e{static get observedAttributes(){return[...super.observedAttributes,"decimals","separators"]}render(){this.renderPrinterField()}}customElements.define("printer-percentage",r);export{r as PrinterPercentage};

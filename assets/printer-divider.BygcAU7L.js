@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.B8W23fke.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class r extends e{render(){}}customElements.define("printer-divider",r);export{r as PrinterDivider};
