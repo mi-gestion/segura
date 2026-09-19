@@ -1,0 +1,1 @@
+import{SettingMedia as t}from"./setting-media.CaIYUaTo.js";import"./BaseElement.MCYYqpju.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class e extends t{}customElements.define("setting-video",e);export{e as SettingVideo};

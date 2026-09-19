@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.MCYYqpju.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"options","data-source-mode","paired-options"]}render(){this.renderPrinterField()}}customElements.define("printer-select",t);export{t as PrinterSelect};

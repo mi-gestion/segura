@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.MCYYqpju.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{render(){this.style.display="none",this.innerHTML=""}}customElements.define("viewer-script",t);export{t as ViewerScript};
