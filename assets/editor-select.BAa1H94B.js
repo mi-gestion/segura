@@ -1,0 +1,1 @@
+import{B as e}from"./BaseElement.MCYYqpju.js";import"./Elements.BsmmG6jM.js";import"./FormulaEngine.CYGke5JL.js";class t extends e{static get observedAttributes(){return[...super.observedAttributes,"options","data-source-mode","paired-options"]}render(){this.renderEditorField()}}customElements.define("editor-select",t);export{t as EditorSelect};
